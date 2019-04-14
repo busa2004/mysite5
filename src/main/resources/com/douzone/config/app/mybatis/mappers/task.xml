@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="task">
+
+	
+	<select id="selectList" resultType="taskvo" parameterType="Long">
+		<![CDATA[
+		select distinct c.no as user_task_no, a.no , a.title , a.content
+		  from task a, user b, user_task c
+		 where c.user_no = #{b.no} and c.task_no = a.no and b.no = #{b.no};
+		]]>
+	</select>
+
+	<select id="selectAllList" resultType="taskvo" parameterType="Long">
+		<![CDATA[
+		select c.no, a.title, a.content, b.name as user_name
+		  from task a, user b, user_task c
+		 where c.user_no = b.no and c.task_no = a.no and b.no = b.no;
+		]]>
+	</select>
+
+</mapper>

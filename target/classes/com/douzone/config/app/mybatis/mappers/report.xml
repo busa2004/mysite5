@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="report">
+
+<insert id="insert" parameterType="reportvo">
+		<![CDATA[
+		 insert 
+		   into report 
+		 values( null, 'wait', #{title},#{content} , #{user_task_no} )
+		]]>
+		
+	</insert>
+	<select id="selectList" resultType="reportvo" parameterType="Long">
+		<![CDATA[
+		select d.no,d.status,d.title,d.content,a.title as task_title
+		  from task a, user b, user_task c, report d
+		 where c.user_no = #{b.no} and c.task_no = a.no and b.no = #{b.no} and d.user_task_no = c.no;
+		]]>
+	</select>
+	<select id="selectAllList" resultType="reportvo">
+		<![CDATA[
+		select d.no,d.status,d.title,d.content,a.title as task_title,b.name as user_name
+		  from task a, user b, user_task c, report d
+		 where c.user_no = b.no and c.task_no = a.no and b.no = b.no and d.user_task_no = c.no;
+		]]>
+	</select>
+<update id="update" parameterType="reportvo">
+		<![CDATA[
+		update report
+		   set status=#{status}
+		   where no = #{no}
+		]]>
+	</update>
+
+
+</mapper>
