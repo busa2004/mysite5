@@ -32,6 +32,11 @@
 
           <h2 class="sub-header">업무 평가</h2>
           <div class="table-responsive">
+          <select name='user_task_no'>
+            <c:forEach items="${versionList}"	var="vo" varStatus="status">
+       	<option value='${vo.item_version_no }'>${ vo.version}</option>
+       	</c:forEach>	
+       	 </select>
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -64,11 +69,7 @@
         <h4 class="modal-title" id="myModalLabel">평가</h4>
       </div>
       <div class="modal-body">
-       <select name='user_task_no'>
-       <c:forEach items="${versionList}"	var="vo" varStatus="status">
-       	<option value='${vo.item_version_no }'>${ vo.version}</option>
-       	</c:forEach>
-       </select>
+       
        
        <!-- 임시 -->
        <!-- ajax로 만들어야 함 -->
