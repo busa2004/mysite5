@@ -22,6 +22,7 @@
 		<mapper resource="/com/douzone/config/app/mybatis/mappers/gallery.xml"/>
 		<mapper resource="/com/douzone/config/app/mybatis/mappers/task.xml"/>
 		<mapper resource="/com/douzone/config/app/mybatis/mappers/item.xml"/>
+		<mapper resource="/com/douzone/config/app/mybatis/mappers/report.xml"/>
 	</mappers>
 	
 </configuration>
