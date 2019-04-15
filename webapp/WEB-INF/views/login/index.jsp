@@ -26,7 +26,7 @@
         <input name="id" type="email" id="inputEmail" class="form-control" placeholder="id" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <c:if test='${result == "fail" or param.result == "fail" }'>
+        <c:if test='${result == "fail"}'>
 						<p>
 							로그인이 실패 했습니다.
 						</p>
